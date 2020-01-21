@@ -1,3 +1,6 @@
+from pyspark import SparkContext
+from pyspark.sql import SQLContext
+from pyspark.sql.types import *
 df1=spark.load(C:\Users\bharat-k\Downloads\Test\df1.csv", format="csv", sep=",", inferSchema="true", header="true")
 df2=spark.load(C:\Users\bharat-k\Downloads\Test\df2.csv", format="csv", sep=",", inferSchema="true", header="true")
 df1.write.parquet(C:\Users\bharat-k\Downloads\Test\df1.parquet")
@@ -6,9 +9,9 @@ parquetfile1=spark.read.parquet(C:\Users\bharat-k\Downloads\Test\df1.parquet")
 parquetfile2=spark.read.parquet(C:\Users\bharat-k\Downloads\Test\df2.parquet")
 parquetfile1=createOrReplaceTempView("day1")
 parquetfile2=createOrReplaceTempView("day2")
-Q1=spark.sql(sql query)
-Q2=spark.sql(sql query)
-Q3=spark.sql(sql query)
+Q1=spark.sql(select ObservationDate from weather where ScreenTemperature in (select max(ScreenTemperature) from weather)
+Q2=spark.sql(select ScreenTemperature from weather where ScreenTemperature in (select max(ScreenTemperature) from weather)
+Q3=spark.sql(seelct Region from weather where ScreenTemperature in (select max(ScreenTemperature) from weather)
 Q1.show()
 Q2.show()
 Q3.show()
