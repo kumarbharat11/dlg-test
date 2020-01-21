@@ -1,6 +1,7 @@
 from pyspark import SparkContext
 from pyspark.sql import SQLContext
 from pyspark.sql.types import *
+
 df1=spark.load(C:\Users\bharat-k\Downloads\Test\df1.csv", format="csv", sep=",", inferSchema="true", header="true")
 df2=spark.load(C:\Users\bharat-k\Downloads\Test\df2.csv", format="csv", sep=",", inferSchema="true", header="true")
 df1.write.parquet(C:\Users\bharat-k\Downloads\Test\df1.parquet")
